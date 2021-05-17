@@ -3,12 +3,16 @@ import context from '../core/context';
 import TodoManager from '../services/todoManager';
 
 const ToggleAllButton = () => {
-	const isChecked = TodoManager.getActiveCount(context.state.todos) === 0;
+	const { todos } = context.state;
+	const isChecked = TodoManager.getActiveCount(todos) === 0;
+	const noTodos = TodoManager.getTodoCount(todos) === 0;
 
-	return <input
-		type="checkbox"
-		checked={ isChecked }
-		onChange={ () => context.actions.toggleTodos(!isChecked) }/>;
+	return noTodos
+		? null
+		: <input
+			type="checkbox"
+			checked={ isChecked }
+			onChange={ () => context.actions.toggleTodos(!isChecked) }/>;
 };
 
 export default ToggleAllButton;
