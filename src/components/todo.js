@@ -17,18 +17,23 @@ const activeStyle = {
 
 const Todo = (todo) => {
 	const { id, text, completed } = todo;
-
 	const style = completed ? completedStyle : activeStyle;
 
-	return (
-		<div key={ id } style={ style }>
-			<span>
-				<input type="checkbox" defaultChecked={ todo.completed }
-					onChange={ () => context.actions.toggleTodo(todo) } />
-			</span>
-			<span>{ text }</span>
-		</div>
-	);
+	return <div key={ id } style={ style }>
+		<span>
+			<input type="checkbox" defaultChecked={ todo.completed }
+				onChange={ () => {
+					context.actions.toggleTodo(todo);
+				} } />
+		</span>
+		<span>{ text }</span>
+		<span>
+			<button
+				onClick={ () => context.actions.removeTodo(todo) }
+			>X
+			</button>
+		</span>
+	</div>;
 };
 
 export default Todo;
