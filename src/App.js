@@ -5,13 +5,17 @@ import SampleService from './services/sample';
 import AddTodo from './components/addTodo';
 import TodoInput from './components/todoInput';
 import TodoList from './components/todoList';
+import ToggleAllButton from './components/toggleAllButton';
 
 const App = () => {
 	useEffect(SampleService.sayHai, []);
 
 	return (
 		<div className="App">
-			<div>{ TodoInput() }</div>
+			<div>
+				{ ToggleAllButton() }
+				{ TodoInput() }
+			</div>
 			<div>{ AddTodo() }</div>
 			<div>{ TodoList() }</div>
 			<div>Refresh ID: { context.state.refreshID }</div>

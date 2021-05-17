@@ -16,7 +16,7 @@ const activeStyle = {
 };
 
 const checkbox = (todo) =>
-	<input type="checkbox" defaultChecked={ todo.completed }
+	<input type="checkbox" checked={ todo.completed }
 		onChange={ () => context.actions.toggleTodo(todo) } />;
 
 const removeButton = (todo) =>
