@@ -15,24 +15,23 @@ const activeStyle = {
 	color: 'black',
 };
 
+const checkbox = (todo) =>
+	<input type="checkbox" defaultChecked={ todo.completed }
+		onChange={ () => context.actions.toggleTodo(todo) } />;
+
+const removeButton = (todo) =>
+	<button
+		onClick={ () => context.actions.removeTodo(todo) }
+	>X</button>;
+
 const Todo = (todo) => {
 	const { id, text, completed } = todo;
 	const style = completed ? completedStyle : activeStyle;
 
 	return <div key={ id } style={ style }>
-		<span>
-			<input type="checkbox" defaultChecked={ todo.completed }
-				onChange={ () => {
-					context.actions.toggleTodo(todo);
-				} } />
-		</span>
+		<span>{ checkbox(todo) }</span>
 		<span>{ text }</span>
-		<span>
-			<button
-				onClick={ () => context.actions.removeTodo(todo) }
-			>X
-			</button>
-		</span>
+		<span>{ removeButton(todo) }</span>
 	</div>;
 };
 
