@@ -1,11 +1,9 @@
 import { React } from 'react';
 import context from '../core/context';
-
-const getActiveCount = ({ todos }) =>
-	todos.filter((todo) => !todo.completed).length;
+import TodoManager from '../services/todoManager';
 
 const ToggleAllButton = () => {
-	const isChecked = getActiveCount(context.state) === 0;
+	const isChecked = TodoManager.getActiveCount(context.state.todos) === 0;
 
 	return <input
 		type="checkbox"

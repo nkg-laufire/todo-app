@@ -27,11 +27,15 @@ const toggleTodos = (todos, isComplete) => todos.map((todo) => ({
 	completed: isComplete,
 }));
 
-const TargetManager = {
+const getActiveCount = (todos) =>
+	todos.filter((todo) => !todo.completed).length;
+
+const TodoManager = {
 	addTodo,
 	toggleTodo,
 	removeTodo,
 	toggleTodos,
+	getActiveCount,
 };
 
-export default TargetManager;
+export default TodoManager;
