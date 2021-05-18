@@ -4,7 +4,7 @@ import context from '../core/context';
 const TodoInput = () =>
 	<input
 		value={context.state.input}
-		onChange={context.actions.updateInputValue}
+		onChange={(evt) => context.actions.updateInput(evt.target.value)}
 	/>;
 
 export default TodoInput;

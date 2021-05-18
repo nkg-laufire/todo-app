@@ -2,15 +2,11 @@ import { React } from 'react';
 import context from '../core/context';
 import TodoManager from '../services/todoManager';
 
-const ClearButton = () => {
-	const { todos } = context.state;
-	const noCompletedTodos = TodoManager.getCompletedCount(todos) === 0;
-
-	return noCompletedTodos
+const ClearButton = () =>
+	(TodoManager.hasNoTodos(context.state.todos)
 		? null
 		: <button
 			onClick={ context.actions.clearCompleted }>Clear completed
-	 </button>;
-};
+		</button>);
 
 export default ClearButton;

@@ -1,7 +1,7 @@
 import TodoManager from '../services/todoManager';
 
-const updateInputValue = (context, evt) => ({
-	input: evt.target.value,
+const updateInput = (context, input) => ({
+	input,
 });
 
 const addTodo = ({ state }) => ({
@@ -29,7 +29,7 @@ const setFilter = (context, filter) => ({
 });
 
 const actions = {
-	updateInputValue,
+	updateInput,
 	addTodo,
 	toggleTodo,
 	removeTodo,

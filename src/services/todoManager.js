@@ -46,6 +46,8 @@ const clearCompleted = (todos) =>
 
 const filterTodos = (todos, filter) => todos.filter(filters[filter]);
 
+const hasNoTodos = (todos) => getCompletedCount(todos) === 0;
+
 const TodoManager = {
 	addTodo,
 	toggleTodo,
@@ -56,6 +58,7 @@ const TodoManager = {
 	getTodoCount,
 	clearCompleted,
 	filterTodos,
+	hasNoTodos,
 };
 
 export default TodoManager;
