@@ -3,6 +3,12 @@ import config from '../core/config';
 
 const { idLength } = config;
 
+const filters = {
+	all: () => true,
+	active: (todo) => !todo.completed,
+	completed: (todo) => todo.completed,
+};
+
 const getTodo = (text) => ({
 	id: rndString(idLength),
 	text: text,
@@ -28,21 +34,15 @@ const toggleTodos = (todos, isComplete) => todos.map((todo) => ({
 }));
 
 const getActiveCount = (todos) =>
-	todos.filter((todo) => !todo.completed).length;
+	todos.filter(filters.active).length;
 
 const getCompletedCount = (todos) =>
-	todos.filter((todo) => todo.completed).length;
+	todos.filter(filters.completed).length;
 
 const getTodoCount = (todos) => todos.length;
 
 const clearCompleted = (todos) =>
-	todos.filter((todo) => !todo.completed);
-
-const filters = {
-	all: () => true,
-	active: (todo) => !todo.completed,
-	completed: (todo) => todo.completed,
-};
+	todos.filter(filters.active);
 
 const filterTodos = (todos, filter) => todos.filter(filters[filter]);
 
