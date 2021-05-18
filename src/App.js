@@ -17,8 +17,8 @@ const App = () => {
 			<div>
 				{ ToggleAllButton() }
 				{ TodoInput() }
+				{ AddTodo() }
 			</div>
-			<div>{ AddTodo() }</div>
 			<div>{ TodoList() }</div>
 			<div>{ ClearButton() }</div>
 			<div>{ FilterBar() }</div>

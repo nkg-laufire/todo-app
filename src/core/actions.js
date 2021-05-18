@@ -5,6 +5,7 @@ const updateInput = (context, input) => ({
 });
 
 const addTodo = ({ state }) => ({
+	input: '',
 	todos: TodoManager.addTodo(state.todos, state.input),
 });
 
