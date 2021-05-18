@@ -8,7 +8,8 @@ const FilterButton = (filter) => {
 
 	return noTodos
 		? null
-		:	<button onClick={ () => context.actions.setFilter(filter) }>
+		:	<button key={ filter }
+			onClick={ () => context.actions.setFilter(filter) }>
 			{ filter }
 		</button>;
 };
