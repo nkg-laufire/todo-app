@@ -2,13 +2,12 @@ import { React, useEffect } from 'react';
 import './App.css';
 import context from './core/context';
 import SampleService from './services/sample';
-import AddTodo from './components/addTodo';
 import TodoInput from './components/todoInput';
 import TodoList from './components/todoList';
 import ToggleAllButton from './components/toggleAllButton';
 import ClearButton from './components/clearButton';
 import FilterBar from './components/filterBar';
-import EditButton from './components/editButton';
+import ActionButton from './components/actionButton';
 
 const App = () => {
 	useEffect(SampleService.sayHai, []);
@@ -18,8 +17,7 @@ const App = () => {
 			<div>
 				{ ToggleAllButton() }
 				{ TodoInput() }
-				{ AddTodo() }
-				{ EditButton() }
+				{ ActionButton() }
 			</div>
 			<div>{ TodoList() }</div>
 			<div>{ ClearButton() }</div>
