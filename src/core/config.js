@@ -1,5 +1,4 @@
 const config = {
-	refreshIDLength: 4,
 	idLength: 16,
 };
 

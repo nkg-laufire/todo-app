@@ -1,6 +1,5 @@
 import { React, useEffect } from 'react';
 import './App.css';
-import context from './core/context';
 import SampleService from './services/sample';
 import TodoInput from './components/todoInput';
 import TodoList from './components/todoList';
@@ -22,7 +21,6 @@ const App = () => {
 			<div>{ TodoList() }</div>
 			<div>{ ClearButton() }</div>
 			<div>{ FilterBar() }</div>
-			<div>Refresh ID: { context.state.refreshID }</div>
 		</div>
 	);
 };
