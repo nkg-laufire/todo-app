@@ -1,6 +1,6 @@
 import { React } from 'react';
-import context from '../core/context';
-import TodoManager from '../services/todoManager';
+import context from '../../core/context';
+import TodoManager from '../../services/todoManager';
 
 const FilterButton = (filter) => {
 	const { todos } = context.state;
