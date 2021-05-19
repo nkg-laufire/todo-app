@@ -30,7 +30,7 @@ const Todo = (todo) => {
 
 	return <div key={ id } style={ style }>
 		<span>{ checkbox(todo) }</span>
-		<span>{ text }</span>
+		<span onClick={ () => context.actions.setEditing(todo) }>{ text }</span>
 		<span>{ removeButton(todo) }</span>
 	</div>;
 };
