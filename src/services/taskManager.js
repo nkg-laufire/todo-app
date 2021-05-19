@@ -1,5 +1,14 @@
+import { rndString } from '@laufire/utils/random';
+import context from '../core/context';
+import config from '../core/config';
+
 const taskManager = () => ({
-	init: () => console.log('Hi!'), // eslint-disable-line no-console
+	init: () => context.actions.setTasks([
+		{
+			id: rndString(config.idLength),
+			text: 'Task 1',
+		},
+	]),
 });
 
 const TaskManager = taskManager();

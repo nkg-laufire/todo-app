@@ -1,6 +1,7 @@
 import { React, useEffect } from 'react';
 import './App.css';
 import TodoPane from './components/todoPane';
+import TaskPane from './components/taskPane';
 import TaskManager from './services/taskManager';
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
 	return (
 		<div className="App">
 			{ TodoPane() }
+			{ TaskPane() }
 		</div>
 	);
 };
