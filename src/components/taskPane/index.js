@@ -1,3 +1,5 @@
+import TaskList from "./taskList";
+
 const style = {
 	position: 'absolute',
 	top: 0,
@@ -10,6 +12,7 @@ const style = {
 const TaskPane = () =>
 	<div style={ style }>
 		<h3>Task</h3>
+		<div>{ TaskList() }</div>
 	</div>
 
 export default TaskPane;
