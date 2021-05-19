@@ -1,10 +1,10 @@
 import { React } from 'react';
 import context from '../../core/context';
 
-const AddTodo = () =>
+const AddButton = () =>
 	<button
 		disabled={ context.state.input === '' }
-		onClick={ context.actions.addTodo }>+
+		onClick={ context.actions.addButton }>+
 	</button>;
 
-export default AddTodo;
+export default AddButton;

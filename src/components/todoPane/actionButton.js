@@ -1,10 +1,10 @@
 import context from '../../core/context';
-import AddTodo from './addTodo';
+import AddButton from './addButton';
 import EditButton from './editButton';
 
 const ActionButton = () => (context.state.editing
 	? EditButton()
-	: AddTodo()
+	: AddButton()
 );
 
 export default ActionButton;
