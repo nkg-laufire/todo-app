@@ -1,8 +1,11 @@
 import { React } from 'react';
 import context from '../core/context';
 
+const getEnterKeyAction = () =>
+	(context.state.editing ? 'editTodo' : 'addTodo');
+
 const actionKeys = {
-	Enter: () => context.actions.addTodo(),
+	Enter: () => context.actions[getEnterKeyAction()](),
 	Escape: () => context.actions.updateInput(''),
 };
 
