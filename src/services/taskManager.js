@@ -7,11 +7,14 @@ const getTask = (text) => ({
 	text: text,
 });
 
-const init = () => context.actions.setTasks([
-	getTask('Task 1'),
-	getTask('Task 2'),
-	getTask('Task 3'),
-]);
+const init = () => {
+	context.actions.addTask('Task 1');
+	context.actions.addTask('Task 2');
+	context.actions.addTask('Task 3');
+};
+
+const addTask = (tasks, task) =>
+	(tasks === '' ? tasks : tasks.concat(getTask(task)));
 
 const removeTask = (tasks, task) =>
 	tasks.filter((data) => data.id !== task.id);
@@ -19,6 +22,7 @@ const removeTask = (tasks, task) =>
 const taskManager = () => ({
 	init,
 	removeTask,
+	addTask,
 });
 
 const TaskManager = taskManager();
