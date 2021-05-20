@@ -13,8 +13,7 @@ const init = () => {
 	context.actions.addTask('Task 3');
 };
 
-const addTask = (tasks, task) =>
-	(tasks === '' ? tasks : tasks.concat(getTask(task)));
+const addTask = (tasks, task) => tasks.concat(getTask(task));
 
 const removeTask = (tasks, task) =>
 	tasks.filter((data) => data.id !== task.id);
