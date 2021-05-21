@@ -1,13 +1,15 @@
 import { rndString } from '@laufire/utils/random';
 import config from '../core/config';
-import { remove, edit, count, isEmpty, editAll, removeAll } from '../lib/store';
+import {
+	remove, edit, count, isEmpty, editAll, removeAll, get,
+} from '../lib/store';
 
 const { idLength } = config;
 
 const filters = {
-	all: () => true,
-	active: (todo) => !todo.completed,
-	completed: (todo) => todo.completed,
+	all: {},
+	active: { completed: false },
+	completed: { completed: true },
 };
 
 const build = (text) => ({
@@ -19,7 +21,7 @@ const build = (text) => ({
 const add = (todos, text) =>
 	(text === '' ? todos : todos.concat(build(text)));
 
-const filterTodos = (todos, filter) => todos.filter(filters[filter]);
+const filter = (todos, filterStr) => get(todos, filters[filterStr]);
 
 const TodoManager = {
 	add,
@@ -29,7 +31,7 @@ const TodoManager = {
 	isEmpty,
 	editAll,
 	removeAll,
-	filterTodos,
+	filter,
 };
 
 export default TodoManager;
