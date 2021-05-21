@@ -20,11 +20,11 @@ const removeTodo = ({ state, data }) => ({
 });
 
 const toggleTodos = ({ state, data }) => ({
-	todos: TodoManager.toggleAll(state.todos, data),
+	todos: TodoManager.editAll(state.todos, { completed: data }),
 });
 
 const clearCompleted = ({ state }) => ({
-	todos: TodoManager.clearCompleted(state.todos),
+	todos: TodoManager.removeAll(state.todos, { completed: false }),
 });
 
 const setFilter = ({ data }) => ({

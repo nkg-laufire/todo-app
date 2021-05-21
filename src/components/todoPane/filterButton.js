@@ -4,7 +4,7 @@ import TodoManager from '../../services/todoManager';
 
 const FilterButton = (filter) => {
 	const { todos } = context.state;
-	const noTodos = TodoManager.getCount(todos) === 0;
+	const noTodos = TodoManager.count(todos) === 0;
 
 	return noTodos
 		? null

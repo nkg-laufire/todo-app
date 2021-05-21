@@ -1,6 +1,6 @@
 import { rndString } from '@laufire/utils/random';
 import config from '../core/config';
-import { remove, edit } from '../lib/store';
+import { remove, edit, count, isEmpty, editAll, removeAll } from '../lib/store';
 
 const { idLength } = config;
 
@@ -19,33 +19,17 @@ const build = (text) => ({
 const add = (todos, text) =>
 	(text === '' ? todos : todos.concat(build(text)));
 
-const toggleAll = (todos, isComplete) => todos.map((todo) => ({
-	...todo,
-	completed: isComplete,
-}));
-
-const getActiveCount = (todos) =>
-	todos.filter(filters.active).length;
-
-const getCount = (todos) => todos.length;
-
-const clearCompleted = (todos) =>
-	todos.filter(filters.active);
-
 const filterTodos = (todos, filter) => todos.filter(filters[filter]);
-
-const isEmpty = (todos) => getCount(todos) === 0;
 
 const TodoManager = {
 	add,
 	edit,
 	remove,
-	toggleAll,
-	getActiveCount,
-	getCount,
-	clearCompleted,
-	filterTodos,
+	count,
 	isEmpty,
+	editAll,
+	removeAll,
+	filterTodos,
 };
 
 export default TodoManager;
