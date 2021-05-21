@@ -7,19 +7,19 @@ const updateInput = ({ data }) => ({
 
 const addTodo = ({ state }) => ({
 	input: '',
-	todos: TodoManager.addTodo(state.todos, state.input),
+	todos: TodoManager.add(state.todos, state.input),
 });
 
 const toggleTodo = ({ state, data }) => ({
-	todos: TodoManager.toggleTodo(state.todos, data),
+	todos: TodoManager.toggle(state.todos, data),
 });
 
 const removeTodo = ({ state, data }) => ({
-	todos: TodoManager.removeTodo(state.todos, data),
+	todos: TodoManager.remove(state.todos, data),
 });
 
 const toggleTodos = ({ state, data }) => ({
-	todos: TodoManager.toggleTodos(state.todos, data),
+	todos: TodoManager.toggleAll(state.todos, data),
 });
 
 const clearCompleted = ({ state }) => ({
@@ -38,21 +38,21 @@ const setEditing = ({ data }) => ({
 const editTodo = ({ state }) => ({
 	input: '',
 	editing: null,
-	todos: TodoManager.editTodo(
+	todos: TodoManager.edit(
 		state.todos, state.editing, state.input
 	),
 });
 
 const addTask = ({ state, data }) => ({
-	tasks: TaskManager.addTask(state.tasks, data),
+	tasks: TaskManager.add(state.tasks, data),
 });
 
 const removeTask = ({ state, data }) => ({
-	tasks: TaskManager.removeTask(state.tasks, data),
+	tasks: TaskManager.remove(state.tasks, data),
 });
 
 const addTaskToTodo = ({ state, data }) => ({
-	todos: TodoManager.addTodo(state.todos, data.text),
+	todos: TodoManager.add(state.todos, data.text),
 });
 
 const actions = {

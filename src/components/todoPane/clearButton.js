@@ -3,7 +3,7 @@ import context from '../../core/context';
 import TodoManager from '../../services/todoManager';
 
 const ClearButton = () =>
-	(TodoManager.hasNoTodos(context.state.todos)
+	(TodoManager.isEmpty(context.state.todos)
 		? null
 		: <button
 			onClick={ context.actions.clearCompleted }>Clear completed

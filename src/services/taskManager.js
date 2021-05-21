@@ -1,8 +1,9 @@
 import { rndString } from '@laufire/utils/random';
 import context from '../core/context';
 import config from '../core/config';
+import { remove } from '../lib/store';
 
-const getTask = (text) => ({
+const build = (text) => ({
 	id: rndString(config.idLength),
 	text: text,
 });
@@ -13,17 +14,12 @@ const init = () => {
 	context.actions.addTask('Task 3');
 };
 
-const addTask = (tasks, task) => tasks.concat(getTask(task));
+const add = (tasks, task) => tasks.concat(build(task));
 
-const removeTask = (tasks, task) =>
-	tasks.filter((data) => data.id !== task.id);
-
-const taskManager = () => ({
+const TaskManager = {
 	init,
-	removeTask,
-	addTask,
-});
-
-const TaskManager = taskManager();
+	add,
+	remove,
+};
 
 export default TaskManager;

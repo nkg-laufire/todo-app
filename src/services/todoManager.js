@@ -1,5 +1,6 @@
 import { rndString } from '@laufire/utils/random';
 import config from '../core/config';
+import { remove } from '../lib/store';
 
 const { idLength } = config;
 
@@ -9,16 +10,16 @@ const filters = {
 	completed: (todo) => todo.completed,
 };
 
-const getTodo = (text) => ({
+const build = (text) => ({
 	id: rndString(idLength),
 	text: text,
 	completed: false,
 });
 
-const addTodo = (todos, text) =>
-	(text === '' ? todos : todos.concat(getTodo(text)));
+const add = (todos, text) =>
+	(text === '' ? todos : todos.concat(build(text)));
 
-const toggleTodo = (todos, data) => todos.map((todo) => (todo.id !== data.id
+const toggle = (todos, data) => todos.map((todo) => (todo.id !== data.id
 	? todo
 	: {
 		...todo,
@@ -26,10 +27,7 @@ const toggleTodo = (todos, data) => todos.map((todo) => (todo.id !== data.id
 	}
 ));
 
-const removeTodo = (todos, todo) =>
-	todos.filter((current) => current.id !== todo.id);
-
-const toggleTodos = (todos, isComplete) => todos.map((todo) => ({
+const toggleAll = (todos, isComplete) => todos.map((todo) => ({
 	...todo,
 	completed: isComplete,
 }));
@@ -40,16 +38,16 @@ const getActiveCount = (todos) =>
 const getCompletedCount = (todos) =>
 	todos.filter(filters.completed).length;
 
-const getTodoCount = (todos) => todos.length;
+const getCount = (todos) => todos.length;
 
 const clearCompleted = (todos) =>
 	todos.filter(filters.active);
 
 const filterTodos = (todos, filter) => todos.filter(filters[filter]);
 
-const hasNoTodos = (todos) => getTodoCount(todos) === 0;
+const isEmpty = (todos) => getCount(todos) === 0;
 
-const editTodo = (
+const edit = (
 	todos, editing, text
 ) =>
 	todos.map((todo) => (todo.id !== editing.id
@@ -61,17 +59,17 @@ const editTodo = (
 	));
 
 const TodoManager = {
-	addTodo,
-	toggleTodo,
-	removeTodo,
-	toggleTodos,
+	add,
+	edit,
+	remove,
+	toggle,
+	toggleAll,
 	getActiveCount,
 	getCompletedCount,
-	getTodoCount,
+	getCount,
 	clearCompleted,
 	filterTodos,
-	hasNoTodos,
-	editTodo,
+	isEmpty,
 };
 
 export default TodoManager;
