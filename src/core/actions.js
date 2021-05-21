@@ -11,7 +11,8 @@ const addTodo = ({ state }) => ({
 });
 
 const toggleTodo = ({ state, data }) => ({
-	todos: TodoManager.toggle(state.todos, data),
+	todos: TodoManager.edit(state.todos,
+		{ ...data, completed: !data.completed }),
 });
 
 const removeTodo = ({ state, data }) => ({
@@ -38,9 +39,8 @@ const setEditing = ({ data }) => ({
 const editTodo = ({ state }) => ({
 	input: '',
 	editing: null,
-	todos: TodoManager.edit(
-		state.todos, state.editing, state.input
-	),
+	todos: TodoManager.edit(state.todos,
+		{ ...state.editing, text: state.input }),
 });
 
 const addTask = ({ state, data }) => ({
