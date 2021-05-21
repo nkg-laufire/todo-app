@@ -2,15 +2,16 @@ import { React } from 'react';
 import context from '../../core/context';
 import TodoManager from '../../services/todoManager';
 
-const FilterButton = (filter) => {
+// eslint-disable-next-line react/prop-types
+const FilterButton = ({ key, filter }) => {
 	const { todos } = context.state;
 	const noTodos = TodoManager.count(todos) === 0;
 
 	return noTodos
 		? null
-		:	<button key={ filter }
+		:	<button key={ key }
 			onClick={ () => context.actions.setFilter(filter) }>
-			{ filter }
+			{ key }
 		</button>;
 };
 

@@ -1,7 +1,9 @@
+import config from './config';
+
 const seed = {
 	input: '',
 	todos: [],
-	filter: 'all',
+	filter: config.filters.all,
 	editing: null,
 	tasks: [],
 };

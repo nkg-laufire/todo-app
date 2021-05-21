@@ -1,8 +1,18 @@
+import { keys } from '@laufire/utils/collection';
 import { React } from 'react';
 import FilterButton from './filterButton';
+import config from '../../core/config';
 
-const filters = ['all', 'active', 'completed'];
+const { filters } = config;
 
-const FilterBar = () => <div> { filters.map(FilterButton) } </div>;
+const filterKeys = keys(filters);
+
+const FilterBar = () =>
+	<div>
+		{
+			filterKeys.map((key) =>
+				FilterButton({ key: key, filter: filters[key] }))
+		}
+	</div>;
 
 export default FilterBar;

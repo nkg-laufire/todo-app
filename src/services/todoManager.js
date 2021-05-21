@@ -6,12 +6,6 @@ import {
 
 const { idLength } = config;
 
-const filters = {
-	all: {},
-	active: { completed: false },
-	completed: { completed: true },
-};
-
 const build = (text) => ({
 	id: rndString(idLength),
 	text: text,
@@ -21,9 +15,8 @@ const build = (text) => ({
 const add = (todos, text) =>
 	(text === '' ? todos : todos.concat(build(text)));
 
-const filter = (todos, filterStr) => get(todos, filters[filterStr]);
-
 const TodoManager = {
+	get,
 	add,
 	edit,
 	remove,
@@ -31,7 +24,6 @@ const TodoManager = {
 	isEmpty,
 	editAll,
 	removeAll,
-	filter,
 };
 
 export default TodoManager;

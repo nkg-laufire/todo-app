@@ -5,7 +5,7 @@ import TodoManager from '../../services/todoManager';
 
 const TodoList = () => {
 	const { todos, filter } = context.state;
-	const filteredTodos = TodoManager.filter(todos, filter);
+	const filteredTodos = TodoManager.get(todos, filter);
 
 	return <div>{ filteredTodos.map(Todo) }</div>;
 };

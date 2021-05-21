@@ -5,6 +5,11 @@ const config = {
 	idLength: 16,
 	tickerDelay: milliseconds * seconds,
 	maxTaskCount: 3,
+	filters: {
+		all: null,
+		active: { completed: false },
+		completed: { completed: true },
+	},
 };
 
 export default config;
