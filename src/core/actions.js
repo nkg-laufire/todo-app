@@ -1,8 +1,8 @@
 import TaskManager from '../services/taskManager';
 import TodoManager from '../services/todoManager';
 
-const updateInput = (context, input) => ({
-	input,
+const updateInput = ({ data }) => ({
+	input: data,
 });
 
 const addTodo = ({ state }) => ({
@@ -10,29 +10,29 @@ const addTodo = ({ state }) => ({
 	todos: TodoManager.addTodo(state.todos, state.input),
 });
 
-const toggleTodo = ({ state }, todo) => ({
-	todos: TodoManager.toggleTodo(state.todos, todo),
+const toggleTodo = ({ state, data }) => ({
+	todos: TodoManager.toggleTodo(state.todos, data),
 });
 
-const removeTodo = (context, todo) => ({
-	todos: TodoManager.removeTodo(context.state.todos, todo),
+const removeTodo = ({ state, data }) => ({
+	todos: TodoManager.removeTodo(state.todos, data),
 });
 
-const toggleTodos = (context, isComplete) => ({
-	todos: TodoManager.toggleTodos(context.state.todos, isComplete),
+const toggleTodos = ({ state, data }) => ({
+	todos: TodoManager.toggleTodos(state.todos, data),
 });
 
 const clearCompleted = ({ state }) => ({
 	todos: TodoManager.clearCompleted(state.todos),
 });
 
-const setFilter = (context, filter) => ({
-	filter,
+const setFilter = ({ data }) => ({
+	filter: data,
 });
 
-const setEditing = (context, todo) => ({
-	editing: todo,
-	input: todo.text,
+const setEditing = ({ data }) => ({
+	editing: data,
+	input: data.text,
 });
 
 const editTodo = ({ state }) => ({
@@ -43,16 +43,16 @@ const editTodo = ({ state }) => ({
 	),
 });
 
-const addTask = ({ state }, task) => ({
-	tasks: TaskManager.addTask(state.tasks, task),
+const addTask = ({ state, data }) => ({
+	tasks: TaskManager.addTask(state.tasks, data),
 });
 
-const removeTask = (context, task) => ({
-	tasks: TaskManager.removeTask(context.state.tasks, task),
+const removeTask = ({ state, data }) => ({
+	tasks: TaskManager.removeTask(state.tasks, data),
 });
 
-const addTaskToTodo = ({ state }, task) => ({
-	todos: TodoManager.addTodo(state.todos, task.text),
+const addTaskToTodo = ({ state, data }) => ({
+	todos: TodoManager.addTodo(state.todos, data.text),
 });
 
 const actions = {
