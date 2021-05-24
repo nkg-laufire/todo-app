@@ -13,6 +13,10 @@ const config = {
 		TaskRetriver: {
 			initCount: 5,
 			maxCount: 3,
+			dueRange: {
+				from: -7,
+				to: 7,
+			},
 		},
 	},
 };

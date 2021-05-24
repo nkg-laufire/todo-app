@@ -21,8 +21,6 @@ $ sh ./setup.
 
 ## ToDo
 
-* Add dates to the tasks. Use faker to mock dates within the range of +/- 1 week from the current date.
-
 * Make the tasks sortable by date bot in ascending and descending orders.
 
 * Translate the dates to a human readable format. Ex: '2 days ago', '3 days left', 'yesterday' and 'today'.
