@@ -28,4 +28,6 @@ const isEmpty = (records) => count(records) === 0;
 const get = (records, selector = {}) =>
 	records.filter((record) => contains(record, selector || {}));
 
-export { remove, edit, count, isEmpty, editAll, removeAll, get };
+const add = (records, record) => records.concat(record);
+
+export { remove, edit, count, isEmpty, editAll, removeAll, get, add };

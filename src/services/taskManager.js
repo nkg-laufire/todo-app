@@ -1,6 +1,4 @@
-import { remove } from '../lib/store';
-
-const add = (tasks, task) => tasks.concat(task);
+import { add, remove } from '../lib/store';
 
 const TaskManager = {
 	add,
