@@ -6,6 +6,7 @@ const start = () => {
 	const { addTask } = context.actions;
 	const { tickerDelay } = config;
 
+	TaskRetriever.init().map(addTask);
 	setInterval(() => TaskRetriever.getTasks().map(addTask), tickerDelay);
 };
 
