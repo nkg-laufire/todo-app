@@ -5,10 +5,10 @@ import Task from './task';
 
 const TaskList = () => {
 	const { tasks, order } = context.state;
-	const filteredTasks = TaskManager.get(tasks, order);
+	const orderedTasks = TaskManager.get(tasks, order);
 
 	return <div>
-		{ filteredTasks.map(Task) }
+		{ orderedTasks.map(Task) }
 	</div>;
 };
 
