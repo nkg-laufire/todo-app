@@ -3,16 +3,25 @@ import config from '../../core/config';
 import context from '../../core/context';
 import TaskManager from '../../services/taskManager';
 
-const getTargetOrder = () =>
-	(TaskManager.getOrderKey(context.state.order) !== 'ascending'
+const orderKeys = {
+	none: '',
+	ascending: '(Asc)',
+	descending: '(Dsc)',
+};
+
+const getTargetKey = (currentKey) =>
+	(currentKey !== 'ascending'
 		? 'ascending'
 		: 'descending');
 
-const SortButton = () =>
-	<button
+const SortButton = () => {
+	const currentKey = TaskManager.getOrderKey(context.state.order);
+
+	return <button
 		onClick={ () =>
 			context.actions
-				.setOrder(config.tasks.orders[getTargetOrder()]) }
-	>Sort</button>;
+				.setOrder(config.tasks.orders[getTargetKey(currentKey)]) }
+	>Sort { orderKeys[currentKey] }</button>;
+};
 
 export default SortButton;
