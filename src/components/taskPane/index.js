@@ -1,3 +1,4 @@
+import SortButton from "./sortButton";
 import TaskList from "./taskList";
 
 const style = {
@@ -12,6 +13,7 @@ const style = {
 const TaskPane = () =>
 	<div style={ style }>
 		<h3>Task</h3>
+		<div>{ SortButton() }</div>
 		<div>{ TaskList() }</div>
 	</div>
 

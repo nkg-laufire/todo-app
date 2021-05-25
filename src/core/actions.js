@@ -55,6 +55,10 @@ const addTaskToTodo = ({ state, data }) => ({
 	todos: TodoManager.add(state.todos, data.text),
 });
 
+const setOrder = ({ data }) => ({
+	order: data,
+});
+
 const actions = {
 	updateInput,
 	addTodo,
@@ -68,6 +72,7 @@ const actions = {
 	removeTask,
 	addTaskToTodo,
 	addTask,
+	setOrder,
 };
 
 export default actions;

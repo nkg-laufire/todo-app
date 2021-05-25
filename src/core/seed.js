@@ -4,7 +4,7 @@ const seed = {
 	input: '',
 	todos: [],
 	filter: config.filters.all,
-	order: config.tasks.orders.ascending,
+	order: config.tasks.orders.none,
 	editing: null,
 	tasks: [],
 };
