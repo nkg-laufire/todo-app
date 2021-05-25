@@ -9,6 +9,17 @@ const config = {
 		active: { completed: false },
 		completed: { completed: true },
 	},
+	tasks: {
+		orders: {
+			none: null,
+			ascending: {
+				dueOn: 'ascending',
+			},
+			descending: {
+				dueOn: 'descending',
+			},
+		},
+	},
 	mocks: {
 		TaskRetriver: {
 			initCount: 5,
