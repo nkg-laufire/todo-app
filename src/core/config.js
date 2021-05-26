@@ -12,12 +12,8 @@ const config = {
 	tasks: {
 		orders: {
 			none: null,
-			ascending: {
-				dueOn: 'ascending',
-			},
-			descending: {
-				dueOn: 'descending',
-			},
+			ascending: { dueOn: 'ascending' },
+			descending: { dueOn: 'descending' },
 		},
 	},
 	mocks: {
