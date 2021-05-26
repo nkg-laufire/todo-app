@@ -4,6 +4,7 @@ import ToggleAllButton from './toggleAllButton';
 import ClearButton from './clearButton';
 import FilterBar from './filterBar';
 import ActionButton from './actionButton';
+import FilterSelect from './filterSelect';
 
 const style = {
 	position: 'absolute',
@@ -25,6 +26,7 @@ const TodoPane = () =>
 		<div>{ TodoList() }</div>
 		<div>{ ClearButton() }</div>
 		<div>{ FilterBar() }</div>
+		<div>{ FilterSelect() }</div>
 	</div>
 
 export default TodoPane;
