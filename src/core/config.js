@@ -4,10 +4,12 @@ const seconds = 15;
 const config = {
 	idLength: 16,
 	tickerDelay: milliseconds * seconds,
-	filters: {
-		all: null,
-		active: { completed: false },
-		completed: { completed: true },
+	todos: {
+		filters: {
+			all: null,
+			active: { completed: false },
+			completed: { completed: true },
+		},
 	},
 	tasks: {
 		orders: {

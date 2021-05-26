@@ -4,7 +4,7 @@ import config from '../../core/config';
 import context from '../../core/context';
 import TodoManager from '../../services/todoManager';
 
-const { filters } = config;
+const { filters } = config.todos;
 
 const filterKeys = keys(filters);
 
@@ -12,18 +12,16 @@ const Options = (filterKey) =>
 	<option key={ filterKey } value={ filterKey }>{ filterKey }</option>;
 
 const FilterSelect = () => {
-	const { todos } = context.state;
+	const { todos, filter } = context.state;
 	const noTodos = TodoManager.count(todos) === 0;
 
 	return noTodos
 		? null
 		:	<select
-			value= {
-				TodoManager.getOrderKey(context.state.filter)
-			}
+			value= { filter }
 			onChange={
 				(evt) =>
-					context.actions.todo.setFilter(filters[evt.target.value])
+					context.actions.todo.setFilter(evt.target.value)
 			}
 		>
 			{ filterKeys.map(Options) }

@@ -1,7 +1,6 @@
 import { React } from 'react';
 import context from '../../core/context';
 import TodoManager from '../../services/todoManager';
-import { equals } from '@laufire/utils/collection';
 
 const activeStyle = {
 	background: 'lightgrey',
@@ -9,19 +8,15 @@ const activeStyle = {
 
 const inactiveStyle = {};
 
-// eslint-disable-next-line react/prop-types
-const FilterButton = ({ key, filter }) => {
-	const { todos } = context.state;
+const FilterButton = (key) => {
+	const { todos, filter } = context.state;
 	const noTodos = TodoManager.count(todos) === 0;
-
-	const activeFilter = context.state.filter;
-	const isActive = equals(filter, activeFilter);
-	const style = isActive ? activeStyle : inactiveStyle;
+	const style = key === filter ? activeStyle : inactiveStyle;
 
 	return noTodos
 		? null
 		:	<button style={ style } key={ key }
-			onClick={ () => context.actions.todo.setFilter(filter) }>
+			onClick={ () => context.actions.todo.setFilter(key) }>
 			{ key }
 		</button>;
 };
