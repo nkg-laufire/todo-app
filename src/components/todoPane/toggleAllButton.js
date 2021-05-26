@@ -12,7 +12,7 @@ const ToggleAllButton = () => {
 		: <input
 			type="checkbox"
 			checked={ isChecked }
-			onChange={ () => context.actions.toggleTodos(!isChecked) }/>;
+			onChange={ () => context.actions.todo.toggleAll(!isChecked) }/>;
 };
 
 export default ToggleAllButton;

@@ -22,7 +22,8 @@ const FilterSelect = () => {
 				TodoManager.getOrderKey(context.state.filter)
 			}
 			onChange={
-				(evt) => context.actions.setFilter(filters[evt.target.value])
+				(evt) =>
+					context.actions.todo.setFilter(filters[evt.target.value])
 			}
 		>
 			{ filterKeys.map(Options) }

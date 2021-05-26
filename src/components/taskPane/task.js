@@ -10,13 +10,13 @@ const style = {
 };
 
 const removeButton = (task) =>
-	<button onClick={ () => context.actions.removeTask(task) }>X</button>;
+	<button onClick={ () => context.actions.task.remove(task) }>X</button>;
 
 const AddButton = (task) =>
 	<button
 		onClick={ () => {
-			context.actions.addTaskToTodo(task);
-			context.actions.removeTask(task);
+			context.actions.todo.addFromTask(task);
+			context.actions.task.remove(task);
 		}}>+
 	</button>;
 

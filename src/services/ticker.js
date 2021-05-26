@@ -3,7 +3,7 @@ import config from '../core/config';
 import TaskRetriever from '../mocks/taskRetriver';
 
 const start = () => {
-	const { addTask } = context.actions;
+	const { add: addTask } = context.actions.task;
 	const { tickerDelay } = config;
 
 	TaskRetriever.init().map(addTask);

@@ -14,7 +14,7 @@ const Option = (orderKey) =>
 const SortSelect = () =>
 	<select
 		value={ TaskManager.getOrderKey(context.state.order) }
-		onChange={ (evt) => context.actions
+		onChange={ (evt) => context.actions.task
 			.setOrder(config.tasks.orders[evt.target.value]) }
 	>
 		{ orderKeys.map(Option) }

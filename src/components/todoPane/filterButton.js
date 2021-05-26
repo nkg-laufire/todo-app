@@ -21,7 +21,7 @@ const FilterButton = ({ key, filter }) => {
 	return noTodos
 		? null
 		:	<button style={ style } key={ key }
-			onClick={ () => context.actions.setFilter(filter) }>
+			onClick={ () => context.actions.todo.setFilter(filter) }>
 			{ key }
 		</button>;
 };

@@ -4,7 +4,7 @@ import context from '../../core/context';
 const AddButton = () =>
 	<button
 		disabled={ context.state.input === '' }
-		onClick={ context.actions.addTodo }>+
+		onClick={ () => context.actions.todo.addFromInput() }>+
 	</button>;
 
 export default AddButton;

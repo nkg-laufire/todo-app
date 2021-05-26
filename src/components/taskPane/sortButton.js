@@ -19,7 +19,7 @@ const SortButton = () => {
 
 	return <button
 		onClick={ () =>
-			context.actions
+			context.actions.task
 				.setOrder(config.tasks.orders[getTargetKey(currentKey)]) }
 	>Sort { orderKeys[currentKey] }</button>;
 };

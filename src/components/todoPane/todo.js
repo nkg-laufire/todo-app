@@ -17,11 +17,11 @@ const activeStyle = {
 
 const checkbox = (todo) =>
 	<input type="checkbox" checked={ todo.completed }
-		onChange={ () => context.actions.toggleTodo(todo) } />;
+		onChange={ () => context.actions.todo.toggle(todo) } />;
 
 const removeButton = (todo) =>
 	<button
-		onClick={ () => context.actions.removeTodo(todo) }
+		onClick={ () => context.actions.todo.remove(todo) }
 	>X</button>;
 
 const Todo = (todo) => {
@@ -30,7 +30,8 @@ const Todo = (todo) => {
 
 	return <div key={ id } style={ style }>
 		<span>{ checkbox(todo) }</span>
-		<span onClick={ () => context.actions.setEditing(todo) }>{ text }</span>
+		<span onClick={ () =>
+			context.actions.todo.setEditing(todo) }>{ text }</span>
 		<span>{ removeButton(todo) }</span>
 	</div>;
 };
