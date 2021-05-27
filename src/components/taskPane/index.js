@@ -1,6 +1,7 @@
 import SortSelect from "./sortSelect";
 import SortButton from "./sortButton";
 import TaskList from "./taskList";
+import SortControl from "./sortControl";
 
 const style = {
 	position: 'absolute',
@@ -14,8 +15,7 @@ const style = {
 const TaskPane = () =>
 	<div style={ style }>
 		<h3>Task</h3>
-		<div>{ SortSelect() }</div>
-		<div>{ SortButton() }</div>
+		<div>{ SortControl() }</div>
 		<div>{ TaskList() }</div>
 	</div>
 
