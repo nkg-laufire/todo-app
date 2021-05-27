@@ -3,12 +3,14 @@ import React from 'react';
 import config from '../../core/config';
 import context from '../../core/context';
 
-const { orders } = config.tasks;
+const { orders, orderLabels } = config.tasks;
 
 const orderKeys = keys(orders);
 
 const Option = (orderKey) =>
-	<option key={ orderKey } value={ orderKey }>{ orderKey }</option>;
+	<option
+		key={ orderKey } value={ orderKey }>
+		{ orderLabels[orderKey] }</option>;
 
 const SortSelect = () =>
 	<select

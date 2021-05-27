@@ -18,6 +18,11 @@ const config = {
 			ascending: { dueOn: 'ascending' },
 			descending: { dueOn: 'descending' },
 		},
+		orderLabels: {
+			none: 'None',
+			ascending: 'Oldest first',
+			descending: 'Newest first',
+		},
 	},
 	mocks: {
 		TaskRetriver: {

@@ -1,11 +1,8 @@
 import React from 'react';
+import config from '../../core/config';
 import context from '../../core/context';
 
-const orderKeys = {
-	none: '',
-	ascending: '(Asc)',
-	descending: '(Dsc)',
-};
+const { orderLabels } = config.tasks;
 
 const getTargetKey = (currentKey) =>
 	(currentKey !== 'ascending'
@@ -19,7 +16,7 @@ const SortButton = () => {
 		onClick={ () =>
 			context.actions.task
 				.setOrder(getTargetKey(currentKey)) }
-	>Sort { orderKeys[currentKey] }</button>;
+	> Sort: { orderLabels[currentKey] }</button>;
 };
 
 export default SortButton;
