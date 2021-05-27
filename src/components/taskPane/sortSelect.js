@@ -2,7 +2,6 @@ import { keys } from '@laufire/utils/collection';
 import React from 'react';
 import config from '../../core/config';
 import context from '../../core/context';
-import TaskManager from '../../services/taskManager';
 
 const { orders } = config.tasks;
 
@@ -13,9 +12,9 @@ const Option = (orderKey) =>
 
 const SortSelect = () =>
 	<select
-		value={ TaskManager.getOrderKey(context.state.order) }
+		value={ context.state.order }
 		onChange={ (evt) => context.actions.task
-			.setOrder(config.tasks.orders[evt.target.value]) }
+			.setOrder(evt.target.value) }
 	>
 		{ orderKeys.map(Option) }
 	</select>;

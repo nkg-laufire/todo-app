@@ -1,7 +1,5 @@
 import React from 'react';
-import config from '../../core/config';
 import context from '../../core/context';
-import TaskManager from '../../services/taskManager';
 
 const orderKeys = {
 	none: '',
@@ -15,12 +13,12 @@ const getTargetKey = (currentKey) =>
 		: 'descending');
 
 const SortButton = () => {
-	const currentKey = TaskManager.getOrderKey(context.state.order);
+	const currentKey = context.state.order;
 
 	return <button
 		onClick={ () =>
 			context.actions.task
-				.setOrder(config.tasks.orders[getTargetKey(currentKey)]) }
+				.setOrder(getTargetKey(currentKey)) }
 	>Sort { orderKeys[currentKey] }</button>;
 };
 

@@ -1,10 +1,8 @@
-import config from './config';
-
 const seed = {
 	input: '',
 	todos: [],
 	filter: 'all',
-	order: config.tasks.orders.none,
+	order: 'none',
 	editing: null,
 	tasks: [],
 };
