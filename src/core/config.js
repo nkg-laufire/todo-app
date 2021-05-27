@@ -4,6 +4,7 @@ const seconds = 15;
 const config = {
 	idLength: 16,
 	tickerDelay: milliseconds * seconds,
+	control: 'button',
 	todos: {
 		filters: {
 			all: null,
