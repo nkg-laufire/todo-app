@@ -6,7 +6,7 @@ const remove = (records, data) =>
 	records.filter((record) => record.id !== data.id);
 
 const removeAll = (records, selector = {}) =>
-	records.filter((record) => contains(record, selector));
+	records.filter((record) => !contains(record, selector));
 
 const edit = (records, data) =>
 	records.map((record) => (isSame(record, data)

@@ -27,7 +27,7 @@ const todo = {
 	}),
 
 	clearCompleted: ({ state }) => ({
-		todos: removeAll(state.todos, { completed: false }),
+		todos: removeAll(state.todos, { completed: true }),
 	}),
 
 	setFilter: ({ data }) => ({
