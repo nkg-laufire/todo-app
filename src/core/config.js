@@ -4,7 +4,7 @@ const seconds = 15;
 const config = {
 	idLength: 16,
 	tickerDelay: milliseconds * seconds,
-	control: 'button',
+	control: 'select',
 	todos: {
 		filters: {
 			all: null,
@@ -17,11 +17,13 @@ const config = {
 			none: null,
 			ascending: { dueOn: 'ascending' },
 			descending: { dueOn: 'descending' },
+			alphabetical: { text: 'ascending' },
 		},
 		orderLabels: {
 			none: 'None',
 			ascending: 'Oldest first',
 			descending: 'Newest first',
+			alphabetical: 'Alphabetical',
 		},
 	},
 	mocks: {
