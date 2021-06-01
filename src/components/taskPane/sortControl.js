@@ -1,9 +1,9 @@
 import config from '../../core/config';
-import SortButton from './sortButton';
+import SortBar from './sortBar';
 import SortSelect from './sortSelect';
 
 const components = {
-	button: SortButton,
+	button: SortBar,
 	select: SortSelect,
 };
 

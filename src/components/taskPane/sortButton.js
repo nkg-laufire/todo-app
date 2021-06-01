@@ -4,19 +4,21 @@ import context from '../../core/context';
 
 const { orderLabels } = config.tasks;
 
-const getTargetKey = (currentKey) =>
-	(currentKey !== 'ascending'
-		? 'ascending'
-		: 'descending');
-
-const SortButton = () => {
-	const currentKey = context.state.order;
-
-	return <button
-		onClick={ () =>
-			context.actions.task
-				.setOrder(getTargetKey(currentKey)) }
-	> Sort: { orderLabels[currentKey] }</button>;
+const activeStyle = {
+	background: 'lightgrey',
 };
+
+const inactiveStyle = {};
+
+const getStyle = ({ state }, key) =>
+	(state.order === key ? activeStyle : inactiveStyle);
+
+const SortButton = (key) =>
+	<button
+		key = { key }
+		value = { key }
+		style = { getStyle(context, key) }
+		onClick={ () => context.actions.task.setOrder(key) }
+	>{ orderLabels[key] }</button>;
 
 export default SortButton;
