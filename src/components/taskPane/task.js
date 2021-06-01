@@ -1,9 +1,6 @@
 import { React } from 'react';
 import context from '../../core/context';
-
-const length = 10;
-
-const readableDate = (date) => date.toISOString().substring(0, length);
+import { diffInDays } from '../../lib/date';
 
 const style = {
 	margin: '0 0.5em',
@@ -25,7 +22,7 @@ const Task = (task) => {
 
 	return <div key={ id }>
 		<span>{ text }</span>
-		<span style={ style }>{ readableDate(dueOn) }</span>
+		<span style={ style }>{ diffInDays(dueOn, Date.now()) }</span>
 		<span>{ AddButton(task) }</span>
 		<span>{ removeButton(task) }</span>
 	</div>;
