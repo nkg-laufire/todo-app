@@ -22,7 +22,7 @@ const Task = (task) => {
 
 	return <div key={ id }>
 		<span>{ text }</span>
-		<span style={ style }>{ diffInDays(dueOn, Date.now()) }</span>
+		<span style={ style }>{ diffInDays(dueOn) }</span>
 		<span>{ AddButton(task) }</span>
 		<span>{ removeButton(task) }</span>
 	</div>;
