@@ -5,17 +5,8 @@ import ClearButton from './clearButton';
 import ActionButton from './actionButton';
 import FilterControl from './filterControl';
 
-const style = {
-	position: 'absolute',
-	top: 0,
-	left: 0,
-	height: '100%',
-	width: '50%',
-	background: 'beige',
-}
-
 const TodoPane = () =>
-	<div style={ style }>
+	<div className="todo-pane">
 		<h3>Todo</h3>
 		<div>
 			{ ToggleAllButton() }

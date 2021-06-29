@@ -1,20 +1,6 @@
 import { React } from 'react';
 import context from '../../core/context';
 
-const sharedStyle = {
-	height: '1em',
-};
-
-const completedStyle = {
-	...sharedStyle,
-	color: 'grey',
-};
-
-const activeStyle = {
-	...sharedStyle,
-	color: 'black',
-};
-
 const checkbox = (todo) =>
 	<input type="checkbox" checked={ todo.completed }
 		onChange={ () => context.actions.todo.toggle(todo) } />;
@@ -26,9 +12,9 @@ const removeButton = (todo) =>
 
 const Todo = (todo) => {
 	const { id, text, completed } = todo;
-	const style = completed ? completedStyle : activeStyle;
+	const className = `todo ${ completed ? 'todo-completed' : 'todo-active' }`;
 
-	return <div key={ id } style={ style }>
+	return <div key={ id } className={ className }>
 		<span>{ checkbox(todo) }</span>
 		<span onClick={ () =>
 			context.actions.todo.setEditing(todo) }>{ text }</span>

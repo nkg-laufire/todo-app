@@ -1,3 +1,41 @@
+.todo {
+	height: 1em;
+}
+
+.todo-completed {
+	color: grey;
+}
+
+.todo-active {
+	color: black;
+}
+
+.todo-pane {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 50%;
+		background: beige;
+}
+
+button.active {
+	background: lightgrey;
+}
+
+.task {
+	margin: 0 0.5em;
+}
+
+.task-pane {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 50%;
+	background: bisque;
+}
+
 .App {
 	text-align: center;
 }
