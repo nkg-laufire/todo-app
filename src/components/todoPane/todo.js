@@ -1,5 +1,6 @@
 import { React } from 'react';
 import context from '../../core/context';
+import Remote from '../../services/remote';
 
 const checkbox = (todo) =>
 	<input type="checkbox" checked={ todo.completed }
@@ -7,7 +8,7 @@ const checkbox = (todo) =>
 
 const removeButton = (todo) =>
 	<button
-		onClick={ () => context.actions.todo.remove(todo) }
+		onClick={ () => Remote.deleteTodo(todo) }
 	>X</button>;
 
 const Todo = (todo) => {
