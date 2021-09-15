@@ -53,7 +53,7 @@ const todo = {
 		todos: data,
 	}),
 
-	addTodo: ({ state, data: { data }}) => ({
+	addTodo: ({ state, data }) => ({
 		todos: add(state.todos, data),
 	}),
 };
