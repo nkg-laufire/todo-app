@@ -49,6 +49,10 @@ const todo = {
 	addFromTask: ({ state, data }) => ({
 		todos: add(state.todos, data.text),
 	}),
+
+	updateTodos: ({ data }) => ({
+		todos: data,
+	}),
 };
 
 export default todo;
