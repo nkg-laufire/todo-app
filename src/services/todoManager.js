@@ -1,19 +1,9 @@
-import { rndString } from '@laufire/utils/random';
-import config from '../core/config';
 import {
 	remove, edit, count, isEmpty, editAll, removeAll, get,
 } from '../lib/store';
 
-const { idLength } = config;
-
-const build = (text) => ({
-	id: rndString(idLength),
-	text: text,
-	completed: false,
-});
-
-const add = (todos, text) =>
-	(text === '' ? todos : todos.concat(build(text)));
+const add = (todos, todo) =>
+	todos.concat(todo);
 
 const TodoManager = {
 	get,

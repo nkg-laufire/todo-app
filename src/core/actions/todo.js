@@ -8,9 +8,8 @@ const todo = {
 		input: data,
 	}),
 
-	addFromInput: ({ state }) => ({
+	addFromInput: () => ({
 		input: '',
-		todos: add(state.todos, state.input),
 	}),
 
 	toggle: ({ state, data }) => ({
@@ -52,6 +51,10 @@ const todo = {
 
 	updateTodos: ({ data }) => ({
 		todos: data,
+	}),
+
+	addTodo: ({ state, data: { data }}) => ({
+		todos: add(state.todos, data),
 	}),
 };
 
