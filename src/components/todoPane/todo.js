@@ -4,7 +4,7 @@ import Remote from '../../services/remote';
 
 const checkbox = (todo) =>
 	<input type="checkbox" checked={ todo.completed }
-		onChange={ () => context.actions.todo.toggle(todo) } />;
+		onChange={ () => Remote.toggleTodo(todo) } />;
 
 const removeButton = (todo) =>
 	<button
