@@ -24,6 +24,15 @@ const Remote = {
 		result && context.actions.todo
 			.remove(todo);
 	},
+
+	editTodo: async ({ state }) => {
+		const result = await axios
+			.put(`http://localhost:5000/todo/${ state.editing.id }`, {
+				text: state.input,
+			});
+
+		result && context.actions.todo.edit();
+	},
 };
 
 export default Remote;
