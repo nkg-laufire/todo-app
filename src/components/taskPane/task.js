@@ -1,8 +1,9 @@
 import { React } from 'react';
 import context from '../../core/context';
+import Remote from '../../services/remote';
 
 const removeButton = (task) =>
-	<button onClick={ () => context.actions.task.remove(task) }>X</button>;
+	<button onClick={ () => Remote.deleteTask(task) }>X</button>;
 
 const AddButton = (task) =>
 	<button
