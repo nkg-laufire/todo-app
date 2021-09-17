@@ -11,12 +11,18 @@ const Remote = {
 			.updateTodos(results.data);
 	},
 
-	createTodo: async (text) =>
-		text !== '' && context.actions.todo
-			.addTodo((await axios.post('http://localhost:5000/todo', {
-				text: text,
-				isCompleted: false,
-			})).data),
+	createTodo: async (text) => {
+		const result = text !== ''
+		&& (await axios.post('http://localhost:5000/todo', {
+			text: text,
+			isCompleted: false,
+		})).data;
+
+		context.actions.todo
+			.addTodo(result);
+
+		return result;
+	},
 
 	deleteTodo: async (todo) => {
 		const result = await axios.delete(`http://localhost:5000/todo/${ todo.id }`);
@@ -57,6 +63,8 @@ const Remote = {
 			.remove(task);
 	},
 
+	createTodoFromTask: async (task) =>
+		await Remote.createTodo(task.text) && Remote.deleteTask(task),
 };
 
 export default Remote;

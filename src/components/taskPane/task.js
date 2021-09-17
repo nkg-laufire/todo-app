@@ -1,5 +1,4 @@
 import { React } from 'react';
-import context from '../../core/context';
 import Remote from '../../services/remote';
 
 const removeButton = (task) =>
@@ -7,10 +6,7 @@ const removeButton = (task) =>
 
 const AddButton = (task) =>
 	<button
-		onClick={ () => {
-			context.actions.todo.addFromTask(task);
-			context.actions.task.remove(task);
-		}}>+
+		onClick={ () => Remote.createTodoFromTask(task) }>+
 	</button>;
 
 const Task = (task) => {
