@@ -42,6 +42,14 @@ const Remote = {
 
 		result && context.actions.todo.toggle(todo);
 	},
+
+	fetchTasks: async () => {
+		const results = await axios.get('http://localhost:5000/task');
+
+		context.actions.task
+			.add(results.data);
+	},
+
 };
 
 export default Remote;
