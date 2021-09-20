@@ -3,8 +3,8 @@ import TaskManager from '../../services/taskManager';
 const { remove } = TaskManager;
 
 const task = {
-	add: ({ data }) => ({
-		tasks: data,
+	set: ({ data: tasks }) => ({
+		tasks,
 	}),
 
 	remove: ({ state, data }) => ({

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import axios from 'axios';
 import context from '../core/context';
 
@@ -52,8 +51,7 @@ const Remote = {
 	fetchTasks: async () => {
 		const results = await axios.get('http://localhost:5000/task');
 
-		context.actions.task
-			.add(results.data);
+		return results.data;
 	},
 
 	deleteTask: async (task) => {

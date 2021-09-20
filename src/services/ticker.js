@@ -3,11 +3,11 @@ import config from '../core/config';
 import TaskRetriever from '../mocks/taskRetriver';
 
 const start = () => {
-	const { add: addTask } = context.actions.task;
+	const { set: setTasks } = context.actions.task;
 	const { tickerDelay } = config;
 
-	TaskRetriever.init().map(addTask);
-	setInterval(() => TaskRetriever.getTasks().map(addTask), tickerDelay);
+	setInterval(async () =>
+		setTasks(await TaskRetriever.getTasks()), tickerDelay);
 };
 
 const Ticker = {
